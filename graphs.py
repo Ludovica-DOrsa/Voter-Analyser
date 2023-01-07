@@ -149,7 +149,7 @@ def plot_5():
                         color_continuous_scale="RdBu",
                         scope="europe",
                         height=800,
-                        title = 'Placement on left right scale by region'
+
                         )
     fig.update_layout(
         legend_title = 'Left (0)- right (10) scale',

@@ -152,7 +152,8 @@ html.Div(
     dbc.Row([
     dbc.Col(
         html.P("View average trust in:"),
-        width="25%"),
+        width= 3,
+        ),
     dbc.Col(
     dcc.Dropdown(options={
         'trstlgl': 'Legal system',
@@ -161,18 +162,27 @@ html.Div(
         'trstep': 'European Parliament',
         'trstun': 'United Nations',
         'trstprl': 'National Parliament',
-    }, value = 'trstprl', id = 'dropdown'))]
+    }, value = 'trstprl', id = 'dropdown'), width= 9)
+    ]
     ),
     dcc.Graph(id='fig3'),
-    dcc.RangeSlider(15, 95, 1, value=[18, 30], id='range-slider',
+    dbc.Row([
+    dbc.Col(html.P("Select an age range:"), width= 3,
+    ),
+    dbc.Col(
+        dcc.RangeSlider(15, 95, 1, value=[18, 30], id='range-slider',
                 marks=None,
                 tooltip={"placement": "bottom", "always_visible": True}
-                ),]),
+                ),  width= 9)
+
+        ,]),
+    ]),
 html.Hr(),
 html.Div([
     dcc.Graph(figure=fig4)]),
 html.Hr(),
 html.Div([
+    html.P( 'Placement on left - right scale by region'),
     dcc.Graph(figure=fig5)]),
                    ])
 
@@ -193,7 +203,9 @@ def update_graph(d_value, s_value):
     df = read_clean_data_plot_3(d_value)
     df = df[(df['agea']>=s_value[0])&(df['agea']<=s_value[1])]
     df = df.groupby(['party_name'])[d_value].mean().reset_index()
-    fig = px.bar(df, x="party_name", y=d_value, color="party_name", range_y=[0, 10],
+    fig = px.bar(df, x="party_name", y=d_value, color="party_name",
+                 title='Trust in institution by party',
+                 range_y=[0, 10],
                  labels={"party_name": "Which party feel closer to"},
 
                  color_discrete_map={
