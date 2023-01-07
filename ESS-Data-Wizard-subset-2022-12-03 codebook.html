@@ -1,0 +1,6185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        html {
+            max-width: 70ch;
+            /* larger spacing on larger screens, very small spacing on tiny screens */
+            padding: calc(1vmin + .5rem);
+            /* shorthand for margin-left/margin-right */
+            margin-inline: auto;
+            /* fluid sizing: https://frontaid.io/blog/fluid-typography-2d-css-locks-clamp/ */
+            font-size: clamp(1em, 0.909em + 0.45vmin, 1.25em);
+            /* use system font stack: https://developer.mozilla.org/en-US/docs/Web/CSS/font-family */
+            font-family: system-ui;
+            --font-size-x-small: 0.8rem;
+            --font-size-small: 1rem;
+            --font-size-medium: 1.3rem;
+            --font-size-large: 1.65rem;
+            --font-size-x-large: 2.4rem;
+            --space-xx-small: 0.25rem;
+            --space-x-small: 0.5rem;
+            --space-small: 1rem;
+            --space-medium: 1.5rem;
+            --space-large: 3rem;
+            --space-x-large: 4rem;
+            --space-xx-large: 6rem;
+            --space-xxx-large: 8rem;
+            --divider-line: 1px dashed var(--color-light-gray);
+            --outline-width: 3px;
+        }
+
+        /* increase line-height for everything except headings */
+        body :not(:is(h1, h2, h3, h4, h5, h6)) {
+            line-height: 1.75;
+        }
+
+        /*
+        .var-header {
+            position: sticky;
+            top: 10px;
+        } */
+
+        .data-table {
+            margin-left: 0;
+            margin-bottom: 0;
+            margin-top: var(--space-small);
+            margin-left: var(--space-small);
+            font-size: var(--font-size-x-small);
+            display: block;
+            overflow-x: auto;
+            width: 100%;
+        }
+
+        .data-table table {
+            border-collapse: collapse;
+            font-size: var(--font-size-x-small);
+        }
+
+        .data-table thead {
+            border-bottom: 2px solid var(--color-black);
+            display: table-header-group;
+            vertical-align: middle;
+            border-color: inherit;
+        }
+
+        .data-table th {
+            padding-bottom: var(--space-x-small);
+            padding-right: var(--space-small);
+            padding-bottom: var(--space-xx-small);
+            padding-top: var(--space-xx-small);
+            text-align: left;
+        }
+
+    </style>
+    <title>Codebook</title>
+</head>
+
+
+
+
+
+<body>
+    <h1>Codebook</h1>
+    <h2>Datafiles</h2>
+    
+        <h3>ESS1</h3>
+    
+        ESS1 - integrated file, edition 6.6
+    
+        
+        <p><a href="https://doi.org/dois/10.21338%2Fess1e06_6" target=”_blank”>doi:dois/10.21338%2Fess1e06_6</a></p>
+    
+    
+        <h3>ESS6</h3>
+    
+        ESS6 - integrated file, edition 2.4
+    
+        
+        <p><a href="https://doi.org/dois/10.21338%2Fess6e02_4" target=”_blank”>doi:dois/10.21338%2Fess6e02_4</a></p>
+    
+    
+        <h3>ESS8</h3>
+    
+        ESS8 - integrated file, edition 2.2
+    
+        
+        <p><a href="https://doi.org/dois/10.21338%2Fess8e02_2" target=”_blank”>doi:dois/10.21338%2Fess8e02_2</a></p>
+    
+    
+        <h3>ESS9</h3>
+    
+        ESS9 - integrated file, edition 3.1
+    
+        
+        <p><a href="https://doi.org/10.21338/ess9e03_1" target=”_blank”>doi:10.21338/ess9e03_1</a></p>
+    
+    
+
+    <h2>Variables</h2>
+    <ul class="toc-list">
+        
+        <li>
+            <a href="#name">
+                <span>name</span>
+                <span> - Title of dataset</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#essround">
+                <span>essround</span>
+                <span> - ESS round</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#edition">
+                <span>edition</span>
+                <span> - Edition</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#proddate">
+                <span>proddate</span>
+                <span> - Production date</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#idno">
+                <span>idno</span>
+                <span> - Respondent's identification number</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#cntry">
+                <span>cntry</span>
+                <span> - Country</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#dweight">
+                <span>dweight</span>
+                <span> - Design weight</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#pspwght">
+                <span>pspwght</span>
+                <span> - Post-stratification weight including design weight</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#pweight">
+                <span>pweight</span>
+                <span> - Population size weight (must be combined with dweight or pspwght)</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#anweight">
+                <span>anweight</span>
+                <span> - Analysis weight</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#tvtot">
+                <span>tvtot</span>
+                <span> - TV watching, total time on average weekday</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#polintr">
+                <span>polintr</span>
+                <span> - How interested in politics</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#polcmpl">
+                <span>polcmpl</span>
+                <span> - Politics too complicated to understand</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#trstlgl">
+                <span>trstlgl</span>
+                <span> - Trust in the legal system</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#trstplc">
+                <span>trstplc</span>
+                <span> - Trust in the police</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#trstplt">
+                <span>trstplt</span>
+                <span> - Trust in politicians</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#trstep">
+                <span>trstep</span>
+                <span> - Trust in the European Parliament</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#trstun">
+                <span>trstun</span>
+                <span> - Trust in the United Nations</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#trstprl">
+                <span>trstprl</span>
+                <span> - Trust in country's parliament</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#vote">
+                <span>vote</span>
+                <span> - Voted last national election</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#prtvtit">
+                <span>prtvtit</span>
+                <span> - Party voted for in last national election, Italy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#prtclit">
+                <span>prtclit</span>
+                <span> - Which party feel closer to, Italy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#lrscale">
+                <span>lrscale</span>
+                <span> - Placement on left right scale</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#dclenv">
+                <span>dclenv</span>
+                <span> - Preferred decision level of environmental protection policies</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#dcldef">
+                <span>dcldef</span>
+                <span> - Preferred decision level of defence policies</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#dclwlfr">
+                <span>dclwlfr</span>
+                <span> - Preferred decision level of social welfare policies</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#dclmig">
+                <span>dclmig</span>
+                <span> - Preferred decision level of immigration and refugees policies</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#dclintr">
+                <span>dclintr</span>
+                <span> - Preferred decision level of interest rates policies</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#gincdif">
+                <span>gincdif</span>
+                <span> - Government should reduce differences in income levels</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#freehms">
+                <span>freehms</span>
+                <span> - Gays and lesbians free to live life as they wish</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#imbgeco">
+                <span>imbgeco</span>
+                <span> - Immigration bad or good for country's economy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#imueclt">
+                <span>imueclt</span>
+                <span> - Country's cultural life undermined or enriched by immigrants</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#gndr">
+                <span>gndr</span>
+                <span> - Gender</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#yrbrn">
+                <span>yrbrn</span>
+                <span> - Year of birth</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#agea">
+                <span>agea</span>
+                <span> - Age of respondent, calculated</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#edulvla">
+                <span>edulvla</span>
+                <span> - Highest level of education</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#edlvit">
+                <span>edlvit</span>
+                <span> - Highest level of education, Italy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#emplrel">
+                <span>emplrel</span>
+                <span> - Employment relation</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#marital">
+                <span>marital</span>
+                <span> - Legal marital status</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#regionit">
+                <span>regionit</span>
+                <span> - Region, Italy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#trstprt">
+                <span>trstprt</span>
+                <span> - Trust in political parties</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#prtvtbit">
+                <span>prtvtbit</span>
+                <span> - Party voted for in last national election, Italy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#prtclbit">
+                <span>prtclbit</span>
+                <span> - Which party feel closer to, Italy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#implvdm">
+                <span>implvdm</span>
+                <span> - How important for you to live in democratically governed country</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#euftf">
+                <span>euftf</span>
+                <span> - European Union: European unification go further or gone too far</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#marsts">
+                <span>marsts</span>
+                <span> - Legal marital status</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#edulvlb">
+                <span>edulvlb</span>
+                <span> - Highest level of education</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#edlvdit">
+                <span>edlvdit</span>
+                <span> - Highest level of education, Italy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#nwspol">
+                <span>nwspol</span>
+                <span> - News about politics and current affairs, watching, reading or listening, in minutes</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#prtclcit">
+                <span>prtclcit</span>
+                <span> - Which party feel closer to, Italy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#mnrgtjb">
+                <span>mnrgtjb</span>
+                <span> - Men should have more right to job than women when jobs are scarce</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#ccnthum">
+                <span>ccnthum</span>
+                <span> - Climate change caused by natural processes, human activity, or both</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#prtvtcit">
+                <span>prtvtcit</span>
+                <span> - Party voted for in last national election, Italy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#prtcldit">
+                <span>prtcldit</span>
+                <span> - Which party feel closer to, Italy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#edlveit">
+                <span>edlveit</span>
+                <span> - Highest level of education, Italy</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#prob">
+                <span>prob</span>
+                <span> - Sampling probability</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#stratum">
+                <span>stratum</span>
+                <span> - Sampling stratum</span>
+            </a>
+        </li>
+        
+        <li>
+            <a href="#psu">
+                <span>psu</span>
+                <span> - Primary sampling unit</span>
+            </a>
+        </li>
+        
+
+    </ul>
+
+    
+    <div>
+        <h3 id="name">name </h3>
+        
+        <div>Title of dataset</div>
+        
+
+        </label>
+        
+    </div>
+    
+    <div>
+        <h3 id="essround">essround </h3>
+        
+        <div>ESS round</div>
+        
+
+        </label>
+        
+    </div>
+    
+    <div>
+        <h3 id="edition">edition </h3>
+        
+        <div>Edition</div>
+        
+
+        </label>
+        
+    </div>
+    
+    <div>
+        <h3 id="proddate">proddate </h3>
+        
+        <div>Production date</div>
+        
+
+        </label>
+        
+    </div>
+    
+    <div>
+        <h3 id="idno">idno </h3>
+        
+        <div>Respondent's identification number</div>
+        
+
+        </label>
+        
+    </div>
+    
+    <div>
+        <h3 id="cntry">cntry </h3>
+        
+        <div>Country</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">AT</td>
+                        
+                        <td>Austria</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">BE</td>
+                        
+                        <td>Belgium</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">BG</td>
+                        
+                        <td>Bulgaria</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">CH</td>
+                        
+                        <td>Switzerland</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">CY</td>
+                        
+                        <td>Cyprus</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">CZ</td>
+                        
+                        <td>Czechia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">DE</td>
+                        
+                        <td>Germany</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">DK</td>
+                        
+                        <td>Denmark</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">EE</td>
+                        
+                        <td>Estonia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">ES</td>
+                        
+                        <td>Spain</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">FI</td>
+                        
+                        <td>Finland</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">FR</td>
+                        
+                        <td>France</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">GB</td>
+                        
+                        <td>United Kingdom</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">HR</td>
+                        
+                        <td>Croatia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">HU</td>
+                        
+                        <td>Hungary</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">IE</td>
+                        
+                        <td>Ireland</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">IS</td>
+                        
+                        <td>Iceland</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">IT</td>
+                        
+                        <td>Italy</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">LT</td>
+                        
+                        <td>Lithuania</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">LV</td>
+                        
+                        <td>Latvia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">ME</td>
+                        
+                        <td>Montenegro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">NL</td>
+                        
+                        <td>Netherlands</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">NO</td>
+                        
+                        <td>Norway</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">PL</td>
+                        
+                        <td>Poland</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">PT</td>
+                        
+                        <td>Portugal</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">RS</td>
+                        
+                        <td>Serbia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">SE</td>
+                        
+                        <td>Sweden</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">SI</td>
+                        
+                        <td>Slovenia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">SK</td>
+                        
+                        <td>Slovakia</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="dweight">dweight </h3>
+        
+        <div>Design weight</div>
+        
+
+        </label>
+        
+    </div>
+    
+    <div>
+        <h3 id="pspwght">pspwght </h3>
+        
+        <div>Post-stratification weight including design weight</div>
+        
+
+        </label>
+        
+    </div>
+    
+    <div>
+        <h3 id="pweight">pweight </h3>
+        
+        <div>Population size weight (must be combined with dweight or pspwght)</div>
+        
+
+        </label>
+        
+    </div>
+    
+    <div>
+        <h3 id="anweight">anweight </h3>
+        
+        <div>Analysis weight</div>
+        
+
+        </label>
+        
+    </div>
+    
+    <div>
+        <h3 id="tvtot">tvtot </h3>
+        
+        <div>TV watching, total time on average weekday</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>No time at all</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Less than 0,5 hour</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>0,5 hour to 1 hour</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>More than 1 hour, up to 1,5 hours</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>More than 1,5 hours, up to 2 hours</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>More than 2 hours, up to 2,5 hours</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>More than 2,5 hours, up to 3 hours</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>More than 3 hours</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="polintr">polintr </h3>
+        
+        <div>How interested in politics</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Very interested</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Quite interested</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Hardly interested</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Not at all interested</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="polcmpl">polcmpl </h3>
+        
+        <div>Politics too complicated to understand</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Never</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Seldom</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Occasionally</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Regularly</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Frequently</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="trstlgl">trstlgl </h3>
+        
+        <div>Trust in the legal system</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>No trust at all</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Complete trust</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="trstplc">trstplc </h3>
+        
+        <div>Trust in the police</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>No trust at all</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Complete trust</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="trstplt">trstplt </h3>
+        
+        <div>Trust in politicians</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>No trust at all</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Complete trust</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="trstep">trstep </h3>
+        
+        <div>Trust in the European Parliament</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>No trust at all</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Complete trust</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="trstun">trstun </h3>
+        
+        <div>Trust in the United Nations</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>No trust at all</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Complete trust</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="trstprl">trstprl </h3>
+        
+        <div>Trust in country's parliament</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>No trust at all</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Complete trust</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="vote">vote </h3>
+        
+        <div>Voted last national election</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Yes</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>No</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Not eligible to vote</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="prtvtit">prtvtit </h3>
+        
+        <div>Party voted for in last national election, Italy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Democratici di Sinistra</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>La Margherita</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Comunisti Italiani</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Verdi e Sdi (Girasole)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>SVP Südtirol Vokspartei</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Rifondazione Comunista</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Forza Italia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>Alleanza Nazionale</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>CCD-CDU (Biancofiore)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">11</td>
+                        
+                        <td>Lega Nord</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">12</td>
+                        
+                        <td>Nuovo PSI</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">13</td>
+                        
+                        <td>Lista Di Pietro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">14</td>
+                        
+                        <td>Democrazia Europea</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">15</td>
+                        
+                        <td>Pannella-Bonino</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">16</td>
+                        
+                        <td>Fiamma Tricolore</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">17</td>
+                        
+                        <td>Altro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">70</td>
+                        
+                        <td>Ha votato solo al maggioritario</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">66</td>
+                        
+                        <td>Not applicable*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="prtclit">prtclit </h3>
+        
+        <div>Which party feel closer to, Italy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Democratici di Sinistra</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>La Margherita</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Comunisti Italiani</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Verdi</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>SDI</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>SVP (Südtirol Volksp</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Rifondazione Comunis</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Forza Italia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>Alleanza Nazionale</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>CCD-CDU</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">11</td>
+                        
+                        <td>Lega Nord</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">12</td>
+                        
+                        <td>Nuovo PSI</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">13</td>
+                        
+                        <td>Lista di Pietro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">14</td>
+                        
+                        <td>Democrazia Europea</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">15</td>
+                        
+                        <td>Pannella-Bonino</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">16</td>
+                        
+                        <td>Fiamma Tricolore</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">17</td>
+                        
+                        <td>Altro (SPECIFICARE)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">66</td>
+                        
+                        <td>Not applicable*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="lrscale">lrscale </h3>
+        
+        <div>Placement on left right scale</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>Left</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Right</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="dclenv">dclenv </h3>
+        
+        <div>Preferred decision level of environmental protection policies</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>International level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>European level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>National level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Regional or local level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="dcldef">dcldef </h3>
+        
+        <div>Preferred decision level of defence policies</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>International level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>European level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>National level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Regional or local level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="dclwlfr">dclwlfr </h3>
+        
+        <div>Preferred decision level of social welfare policies</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>International level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>European level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>National level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Regional or local level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="dclmig">dclmig </h3>
+        
+        <div>Preferred decision level of immigration and refugees policies</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>International level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>European level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>National level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Regional or local level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="dclintr">dclintr </h3>
+        
+        <div>Preferred decision level of interest rates policies</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>International level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>European level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>National level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Regional or local level</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="gincdif">gincdif </h3>
+        
+        <div>Government should reduce differences in income levels</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Agree strongly</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Agree</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Neither agree nor disagree</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Disagree</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Disagree strongly</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="freehms">freehms </h3>
+        
+        <div>Gays and lesbians free to live life as they wish</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Agree strongly</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Agree</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Neither agree nor disagree</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Disagree</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Disagree strongly</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="imbgeco">imbgeco </h3>
+        
+        <div>Immigration bad or good for country's economy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>Bad for the economy</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Good for the economy</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="imueclt">imueclt </h3>
+        
+        <div>Country's cultural life undermined or enriched by immigrants</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>Cultural life undermined</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Cultural life enriched</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="gndr">gndr </h3>
+        
+        <div>Gender</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Male</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Female</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="yrbrn">yrbrn </h3>
+        
+        <div>Year of birth</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">7777</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8888</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9999</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="agea">agea </h3>
+        
+        <div>Age of respondent, calculated</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">999</td>
+                        
+                        <td>Not available*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="edulvla">edulvla </h3>
+        
+        <div>Highest level of education</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>Not possible to harmonise into 5-level ISCED</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Less than lower secondary education (ISCED 0-1)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Lower secondary education completed (ISCED 2)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Upper secondary education completed (ISCED 3)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Post-secondary non-tertiary education completed (ISCED 4)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Tertiary education completed (ISCED 5-6)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">55</td>
+                        
+                        <td>Other</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="edlvit">edlvit </h3>
+        
+        <div>Highest level of education, Italy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Senza titolo</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Licenza elementare</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Licenza media / avviamento professionale</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Diploma scuola media superiore</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Diploma universitario</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>Laurea</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Specializzazione post-laurea</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Altro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="emplrel">emplrel </h3>
+        
+        <div>Employment relation</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Employee</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Self-employed</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Working for own family business</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>Not applicable*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="marital">marital </h3>
+        
+        <div>Legal marital status</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Married</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Separated</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Divorced</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Widowed</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Never married</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="regionit">regionit </h3>
+        
+        <div>Region, Italy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Piemonte</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Valle d'Aosta</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Lombardia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Trentino-Alto Adige</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Veneto</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>Friuli-Venezia Giulia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Liguria</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Emilia-Romagna</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>Toscana</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Umbria</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">11</td>
+                        
+                        <td>Marche</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">12</td>
+                        
+                        <td>Lazio</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">13</td>
+                        
+                        <td>Abruzzo</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">14</td>
+                        
+                        <td>Molise</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">15</td>
+                        
+                        <td>Campania</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">16</td>
+                        
+                        <td>Puglia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">17</td>
+                        
+                        <td>Basilicata</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">18</td>
+                        
+                        <td>Calabria</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">19</td>
+                        
+                        <td>Sicilia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">20</td>
+                        
+                        <td>Sardegna</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">999</td>
+                        
+                        <td>Not available*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="trstprt">trstprt </h3>
+        
+        <div>Trust in political parties</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>No trust at all</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Complete trust</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="prtvtbit">prtvtbit </h3>
+        
+        <div>Party voted for in last national election, Italy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Partido Democratico (PD)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Sinistra Ecologia e Libertà (SEL)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Rivoluzione Civile (Ingroia)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Movimento 5 Stelle</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Scelta Civica (con Monti)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>UDC</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>FLI</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Popolo delle Libertà (PdL)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>Lega Nord</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Fratelli d'Italia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">11</td>
+                        
+                        <td>Radicali Italiani (Amnistia giustizia e libertà)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">12</td>
+                        
+                        <td>FARE - Giannino</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">13</td>
+                        
+                        <td>La destra</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">14</td>
+                        
+                        <td>Altro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">66</td>
+                        
+                        <td>Not applicable*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="prtclbit">prtclbit </h3>
+        
+        <div>Which party feel closer to, Italy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Partido Democratico (PD)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Sinistra Ecologia e Libertà (SEL)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Rivoluzione Civile (Ingroia)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Movimento 5 Stelle</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Scelta Civica (con Monti)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>UDC</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>FLI</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Popolo delle Libertà (PDL)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>Lega Nord</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Fratelli d'Italia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">11</td>
+                        
+                        <td>Radicali Italiani (Amnistia giustizia e libertà)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">12</td>
+                        
+                        <td>FARE - Giannino</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">13</td>
+                        
+                        <td>La destra</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">14</td>
+                        
+                        <td>Altro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">66</td>
+                        
+                        <td>Not applicable*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="implvdm">implvdm </h3>
+        
+        <div>How important for you to live in democratically governed country</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>Not at all important</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Extremely important</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="euftf">euftf </h3>
+        
+        <div>European Union: European unification go further or gone too far</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>Unification already gone too far</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>2</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>4</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>6</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>7</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>8</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>9</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Unification go further</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="marsts">marsts </h3>
+        
+        <div>Legal marital status</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Legally married</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>In a legally registered civil union</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Legally separated</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Legally divorced/Civil union dissolved</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Widowed/Civil partner died</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>None of these (NEVER married or in legally registered civil union)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">66</td>
+                        
+                        <td>Not applicable*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="edulvlb">edulvlb </h3>
+        
+        <div>Highest level of education</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">0</td>
+                        
+                        <td>Not completed ISCED level 1</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">113</td>
+                        
+                        <td>ISCED 1, completed primary education</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">129</td>
+                        
+                        <td>Vocational ISCED 2C < 2 years, no access ISCED 3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">212</td>
+                        
+                        <td>General/pre-vocational ISCED 2A/2B, access ISCED 3 vocational</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">213</td>
+                        
+                        <td>General ISCED 2A, access ISCED 3A general/all 3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">221</td>
+                        
+                        <td>Vocational ISCED 2C >= 2 years, no access ISCED 3</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">222</td>
+                        
+                        <td>Vocational ISCED 2A/2B, access ISCED 3 vocational</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">223</td>
+                        
+                        <td>Vocational ISCED 2, access ISCED 3 general/all</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">229</td>
+                        
+                        <td>Vocational ISCED 3C < 2 years, no access ISCED 5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">311</td>
+                        
+                        <td>General ISCED 3 >=2 years, no access ISCED 5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">312</td>
+                        
+                        <td>General ISCED 3A/3B, access ISCED 5B/lower tier 5A</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">313</td>
+                        
+                        <td>General ISCED 3A, access upper tier ISCED 5A/all 5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">321</td>
+                        
+                        <td>Vocational ISCED 3C >= 2 years, no access ISCED 5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">322</td>
+                        
+                        <td>Vocational ISCED 3A, access ISCED 5B/ lower tier 5A</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">323</td>
+                        
+                        <td>Vocational ISCED 3A, access upper tier ISCED 5A/all 5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">412</td>
+                        
+                        <td>General ISCED 4A/4B, access ISCED 5B/lower tier 5A</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">413</td>
+                        
+                        <td>General ISCED 4A, access upper tier ISCED 5A/all 5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">421</td>
+                        
+                        <td>ISCED 4 programmes without access ISCED 5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">422</td>
+                        
+                        <td>Vocational ISCED 4A/4B, access ISCED 5B/lower tier 5A</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">423</td>
+                        
+                        <td>Vocational ISCED 4A, access upper tier ISCED 5A/all 5</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">510</td>
+                        
+                        <td>ISCED 5A short, intermediate/academic/general tertiary below bachelor</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">520</td>
+                        
+                        <td>ISCED 5B short, advanced vocational qualifications</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">610</td>
+                        
+                        <td>ISCED 5A medium, bachelor/equivalent from lower tier tertiary</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">620</td>
+                        
+                        <td>ISCED 5A medium, bachelor/equivalent from upper/single tier tertiary</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">710</td>
+                        
+                        <td>ISCED 5A long, master/equivalent from lower tier tertiary</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">720</td>
+                        
+                        <td>ISCED 5A long, master/equivalent from upper/single tier tertiary</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">800</td>
+                        
+                        <td>ISCED 6, doctoral degree</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5555</td>
+                        
+                        <td>Other</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7777</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8888</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9999</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="edlvdit">edlvdit </h3>
+        
+        <div>Highest level of education, Italy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Senza titolo</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Licenza elementare</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Avviamento professionale</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Licenza media</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Qualifica professionale post obbligo</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>Diploma di qualifica professionale</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Diploma superiore tecnico o professionale</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Diploma liceale</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>Specializzazione post diploma non universitaria</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Diploma universitario vecchio ordinamento</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">11</td>
+                        
+                        <td>Istruzione terziaria non universitaria (musica e arte)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">12</td>
+                        
+                        <td>Laurea triennale</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">13</td>
+                        
+                        <td>Master primo livello</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">14</td>
+                        
+                        <td>Laurea vecchio ordiamento, magistrale o a ciclo unico</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">15</td>
+                        
+                        <td>Master secondo livello</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">16</td>
+                        
+                        <td>Specializzazioni post laurea magistrale (1 o 2 anni)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">17</td>
+                        
+                        <td>Specializzazione post laurea magistrale (3 o 4 anni)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">18</td>
+                        
+                        <td>Dottorato di ricerca</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5555</td>
+                        
+                        <td>Other</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7777</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8888</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9999</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="nwspol">nwspol </h3>
+        
+        <div>News about politics and current affairs, watching, reading or listening, in minutes</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">7777</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8888</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9999</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="prtclcit">prtclcit </h3>
+        
+        <div>Which party feel closer to, Italy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Movimento 5 Stelle</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Partido Democratico (PD)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Lega Nord</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Forza Italia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Fratelli d'Italia - An</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>Articolo 1 Mdp</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Alternativa popolare</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Sinistra italiana</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>Altro (scrivere)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">66</td>
+                        
+                        <td>Not applicable*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="mnrgtjb">mnrgtjb </h3>
+        
+        <div>Men should have more right to job than women when jobs are scarce</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Agree strongly</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Agree</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Neither agree nor disagree</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Disagree</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Disagree strongly</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="ccnthum">ccnthum </h3>
+        
+        <div>Climate change caused by natural processes, human activity, or both</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Entirely by natural processes</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Mainly by natural processes</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>About equally by natural processes and human activity</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Mainly by human activity</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Entirely by human activity</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">55</td>
+                        
+                        <td>I don't think climate change is happening</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">66</td>
+                        
+                        <td>Not applicable*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="prtvtcit">prtvtcit </h3>
+        
+        <div>Party voted for in last national election, Italy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Partido Democratico (PD)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>+ Europa</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Italia Europa Insieme</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Civia Popolare Lorenzin</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>SVP-PATT</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>Liberi e Uguali</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Movimento 5 Stelle</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Forza Italia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>Lega Nord</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Fratelli d'Italia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">11</td>
+                        
+                        <td>Noi con l'Italia - UDC</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">12</td>
+                        
+                        <td>Potere al popolo</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">13</td>
+                        
+                        <td>Casapound Italia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">14</td>
+                        
+                        <td>Altro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">66</td>
+                        
+                        <td>Not applicable*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="prtcldit">prtcldit </h3>
+        
+        <div>Which party feel closer to, Italy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Partido Democratico (PD)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>+ Europa</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Italia Europa Insieme</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Civia Popolare Lorenzin</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>SVP-PATT</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>Liberi e Uguali</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Movimento 5 Stelle</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Forza Italia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>Lega Nord</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Fratelli d'Italia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">11</td>
+                        
+                        <td>Noi con l'Italia - UDC</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">12</td>
+                        
+                        <td>Potere al popolo</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">13</td>
+                        
+                        <td>Casapound Italia</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">14</td>
+                        
+                        <td>Altro</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">66</td>
+                        
+                        <td>Not applicable*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">77</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">88</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">99</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="edlveit">edlveit </h3>
+        
+        <div>Highest level of education, Italy</div>
+        
+
+        </label>
+        
+        <div class="data-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody class="codelist">
+                    
+                    
+                    <tr>
+                        <td class="nowrap">1</td>
+                        
+                        <td>Nessun titolo</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">2</td>
+                        
+                        <td>Licenza elementare o attestato di valutazione finale di istruzione primaria</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">3</td>
+                        
+                        <td>Avviamento professionale</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">4</td>
+                        
+                        <td>Licenza media o diploma di istruzione secondaria di I grado</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5</td>
+                        
+                        <td>Qualifica professionale regionale (durata inferiore ai 2 anni)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">6</td>
+                        
+                        <td>Diploma di qualifica professionale di scuola secondaria superiore</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7</td>
+                        
+                        <td>Diploma professionale IeFP di Tecnico (quarto anno)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8</td>
+                        
+                        <td>Diploma di Maturità / Diploma di Istruzione tecnica o professionale</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9</td>
+                        
+                        <td>Diploma di Maturità / Diploma di Istruzione secondaria superiore (di II grado)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">10</td>
+                        
+                        <td>Qualifica professionale regionale post-diploma / Certificato di specializzazione tecnica superiore (IFTS)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">11</td>
+                        
+                        <td>Diploma di Tecnico Superiore ITS</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">12</td>
+                        
+                        <td>Laurea di primo livello (triennale)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">13</td>
+                        
+                        <td>Diploma universitario di 2-3 anni / Scuola diretta a fini speciali / Scuola parauniversitaria</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">14</td>
+                        
+                        <td>Diploma accademico di primo livello AFAM (triennale)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">15</td>
+                        
+                        <td>Master universitario di 1° livello / Diploma accademico di specializzazione/perfezionamento di 1° livello (AFAM)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">16</td>
+                        
+                        <td>Diploma di Accademia (Belle arti nazionale di arte drammatica nazionale di danza)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">17</td>
+                        
+                        <td>Laurea vecchio ordinamento / Laurea specialistica o magistrale a ciclo unico</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">18</td>
+                        
+                        <td>Laurea specialistica o magistrale di secondo livello (biennale)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">19</td>
+                        
+                        <td>Diploma accademico di secondo livello AFAM (biennale)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">20</td>
+                        
+                        <td>Master universitario di 2° livello / Diploma di specializzazione universitaria di 2 livello</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">21</td>
+                        
+                        <td>Dottorato di ricerca / Diploma accademico di formazione alla ricerca (AFAM)</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">5555</td>
+                        
+                        <td>Other</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">7777</td>
+                        
+                        <td>Refusal*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">8888</td>
+                        
+                        <td>Don't know*</td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="nowrap">9999</td>
+                        
+                        <td>No answer*</td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+
+            </table>
+            
+            <p>
+                <span> *) Missing Value </span>
+            </p>
+            
+        </div>
+        
+    </div>
+    
+    <div>
+        <h3 id="prob">prob </h3>
+        
+        <div>Sampling probability</div>
+        
+
+        </label>
+        
+    </div>
+    
+    <div>
+        <h3 id="stratum">stratum </h3>
+        
+        <div>Sampling stratum</div>
+        
+
+        </label>
+        
+    </div>
+    
+    <div>
+        <h3 id="psu">psu </h3>
+        
+        <div>Primary sampling unit</div>
+        
+
+        </label>
+        
+    </div>
+    
+</body>
+
+</html>
